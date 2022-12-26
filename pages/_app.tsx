@@ -1,28 +1,26 @@
 import type { AppProps } from 'next/app';
-import { css, Global } from '@emotion/react';
+import { Source_Sans_Pro } from "@next/font/google";
+import { Global } from '@emotion/react';
+import { global } from "@styles";
+
+const font = Source_Sans_Pro({
+  weight: ['300', '600'],
+  subsets: ['latin'],
+});
+
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
+      <style jsx global>{`
+        html {
+          font-family: ${font.style.fontFamily};
+          font-weight: 300;
+        }
+      `}</style>
       <Global styles={global} />
       <Component {...pageProps} />
     </>
   );
 };
 
-const global = css`
-  * {
-    box-sizing: border-box;
-  }
-  html,
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  }
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-`;
 export default App;
