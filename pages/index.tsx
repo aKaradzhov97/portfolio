@@ -63,7 +63,6 @@ const Home = () => {
     <>
       <Head>
         <title>{`${OWNER_NAME} | ${JOB_TITLE}`}</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Wrapper>
         <Navigation onOpenArticle={handleOpenArticle} transition={transition} />
