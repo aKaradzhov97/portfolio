@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Title from '@components/Title';
 import JSIcon from '@components/Icons/JSIcon';
 import TSIcon from '@components/Icons/TSIcon';
@@ -19,103 +20,110 @@ import WebpackIcon from '@components/Icons/WebpackIcon';
 import GitIcon from '@components/Icons/GitIcon';
 import JekyllIcon from '@components/Icons/JekyllIcon';
 import DotNetIcon from '@components/Icons/DotNetIcon';
-import { StyledSkillsList, StyledSkillItem } from './Skills.styled';
-import NGRXIcon from "@components/Icons/NGRXIcon";
-import MuiIcon from "@components/Icons/MuiIcon";
+import NGRXIcon from '@components/Icons/NGRXIcon';
+import MuiIcon from '@components/Icons/MuiIcon';
+import {
+  StyledContainer,
+  StyledSkillsList,
+  StyledSkillItem,
+} from './Skills.styled';
 
-export const SkillsSection = () => {
-  return (
-    <>
-      <Title level="2" underlined>
-        Skills
-      </Title>
-      <div>
-        <Title level="3">Essential</Title>
-        <StyledSkillsList>
-          <StyledSkillItem>
-            <JSIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <TSIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <HTMLIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <CSSIcon />
-          </StyledSkillItem>
-        </StyledSkillsList>
-
-        <Title level="3">Frameworks</Title>
-        <StyledSkillsList>
-          <StyledSkillItem>
-            <ReactIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <AngularIcon />
-          </StyledSkillItem>
-        </StyledSkillsList>
-
-        <Title level="3">State management</Title>
-        <StyledSkillsList>
-          <StyledSkillItem>
-            <ReduxIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <NGRXIcon />
-          </StyledSkillItem>
-        </StyledSkillsList>
-
-        <Title level="3">Popular libraries</Title>
-        <StyledSkillsList>
-          <StyledSkillItem>
-            <MuiIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <BootstrapIcon />
-          </StyledSkillItem>
-        </StyledSkillsList>
-
-        <Title level="3">Others</Title>
-        <StyledSkillsList>
-          <StyledSkillItem>
-            <NodeJSIcon/>
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <NPMIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <GitIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <ExpressJSIcon/>
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <WebpackIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <SassIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <MySQLIcon/>
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <MongoDBIcon/>
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <RestAPIsIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <JqueryIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <JekyllIcon />
-          </StyledSkillItem>
-          <StyledSkillItem>
-            <DotNetIcon />
-          </StyledSkillItem>
-        </StyledSkillsList>
-      </div>
-    </>
-  );
+type Props = {
+  isActive: boolean;
 };
+const SkillsSection = ({ isActive }: Props) => (
+  <StyledContainer $isActive={isActive}>
+    <Title level="2" underlined>
+      Skills
+    </Title>
+    <div>
+      <Title level="3">Essential</Title>
+      <StyledSkillsList>
+        <StyledSkillItem>
+          <JSIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <TSIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <HTMLIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <CSSIcon />
+        </StyledSkillItem>
+      </StyledSkillsList>
+
+      <Title level="3">Frameworks</Title>
+      <StyledSkillsList>
+        <StyledSkillItem>
+          <ReactIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <AngularIcon />
+        </StyledSkillItem>
+      </StyledSkillsList>
+
+      <Title level="3">State management</Title>
+      <StyledSkillsList>
+        <StyledSkillItem>
+          <ReduxIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <NGRXIcon />
+        </StyledSkillItem>
+      </StyledSkillsList>
+
+      <Title level="3">Popular libraries</Title>
+      <StyledSkillsList>
+        <StyledSkillItem>
+          <MuiIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <BootstrapIcon />
+        </StyledSkillItem>
+      </StyledSkillsList>
+
+      <Title level="3">Others</Title>
+      <StyledSkillsList>
+        <StyledSkillItem>
+          <NodeJSIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <NPMIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <GitIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <ExpressJSIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <WebpackIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <SassIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <MySQLIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <MongoDBIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <RestAPIsIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <JqueryIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <JekyllIcon />
+        </StyledSkillItem>
+        <StyledSkillItem>
+          <DotNetIcon />
+        </StyledSkillItem>
+      </StyledSkillsList>
+    </div>
+  </StyledContainer>
+);
+
+export default memo(SkillsSection);

@@ -2,6 +2,10 @@ import styled from '@emotion/styled';
 import Button from "@components/Button";
 import { breakpoints } from "@styles";
 
+export const StyledContainer = styled.div<{ $isActive?: boolean }>`
+  display: ${({ $isActive }) => $isActive ? 'block' : 'none'};
+`;
+
 export const StyledForm = styled.form`
   margin: 0 0 2rem;
 `;

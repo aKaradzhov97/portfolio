@@ -1,7 +1,11 @@
 import styled from '@emotion/styled';
-import { breakpoints } from "@styles";
+import { breakpoints } from '@styles';
 
-const gutter = "0.5rem";
+const gutter = '0.5rem';
+
+export const StyledContainer = styled.div<{ $isActive?: boolean }>`
+  display: ${({ $isActive }) => $isActive ? 'block' : 'none'};
+`;
 
 export const StyledSkillsList = styled.div`
   display: flex;
@@ -18,7 +22,7 @@ export const StyledSkillItem = styled.div`
   width: 100%;
   text-align: center;
   padding: ${gutter};
-  
+
   @media screen and (min-width: ${breakpoints.sm}) {
     flex-basis: 25%;
   }

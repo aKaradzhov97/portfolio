@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 import { breakpoints } from '@styles';
 
+export const StyledContainer = styled.div<{ $isActive?: boolean }>`
+  display: ${({ $isActive }) => $isActive ? 'block' : 'none'};
+`;
+
 export const StyledProject = styled.div`
   position: relative;
   margin: 0 0 2rem;

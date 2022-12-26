@@ -1,10 +1,10 @@
 import { ForwardedRef, forwardRef } from 'react';
 import { Article, Transition } from '@enums';
 import CloseIcon from "@components/Icons/CloseIcon";
-import { AboutSection } from './sections/About';
-import { SkillsSection } from './sections/Skills';
-import { ProjectsSection } from './sections/Projects';
-import { ContactSection } from './sections/Contact';
+import AboutSection from './sections/About';
+import SkillsSection from './sections/Skills';
+import ProjectsSection from './sections/Projects';
+import ContactSection from './sections/Contact';
 import { StyledMain, StyledPaper, StyledIconButton } from './Main.styled';
 
 type Props = {
@@ -16,24 +16,6 @@ const Main = (
   { article, transition, onCloseArticle }: Props,
   ref: ForwardedRef<HTMLDivElement>
 ) => {
-  let section;
-  switch (article) {
-    case Article.ABOUT:
-      section = <AboutSection />;
-      break;
-    case Article.SKILLS:
-      section = <SkillsSection />;
-      break;
-    case Article.PROJECTS:
-      section = <ProjectsSection />;
-      break;
-    case Article.CONTACTS:
-      section = <ContactSection />;
-      break;
-    default:
-      section = null;
-  }
-
   const isArticleVisible =
     transition === Transition.ARTICLE_TRANSITION ||
     transition === Transition.ARTICLE_VISIBLE;
@@ -41,7 +23,10 @@ const Main = (
   return (
     <StyledMain ref={ref} $isVisible={isArticleVisible}>
       <StyledPaper $isActive={transition === Transition.ARTICLE_VISIBLE}>
-        {section}
+        <AboutSection isActive={article === Article.ABOUT} />
+        <SkillsSection isActive={article === Article.SKILLS} />
+        <ProjectsSection isActive={article === Article.PROJECTS} />
+        <ContactSection isActive={article === Article.CONTACTS} />
         <StyledIconButton onClick={onCloseArticle}>
           <CloseIcon />
         </StyledIconButton>

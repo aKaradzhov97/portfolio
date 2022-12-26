@@ -1,17 +1,27 @@
-import { useMediaQuery } from "usehooks-ts";
-import { breakpoints } from "@styles";
+import { memo } from "react";
+import { useMediaQuery } from 'usehooks-ts';
+import { breakpoints } from '@styles';
 import Title from '@components/Title';
 import Input from '@components/Input';
 import Textarea from '@components/Textarea';
 import Label from '@components/Label';
 import SocialLinks from '@components/SocialLinks';
-import { StyledForm, StyledFields, StyledField, StyledButton } from './Contact.styled';
+import {
+  StyledContainer,
+  StyledForm,
+  StyledFields,
+  StyledField,
+  StyledButton,
+} from './Contact.styled';
 
-export const ContactSection = () => {
+type Props = {
+  isActive: boolean;
+};
+const ContactSection = ({ isActive }: Props) => {
   const isDesktop = useMediaQuery(`(min-width: ${breakpoints.md})`);
 
   return (
-    <>
+    <StyledContainer $isActive={isActive}>
       <Title level="2" underlined>
         Contact
       </Title>
@@ -41,6 +51,8 @@ export const ContactSection = () => {
         </StyledButton>
       </StyledForm>
       <SocialLinks />
-    </>
+    </StyledContainer>
   );
 };
+
+export default memo(ContactSection);
