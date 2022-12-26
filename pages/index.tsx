@@ -62,9 +62,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>
-          {OWNER_NAME} | {JOB_TITLE}
-        </title>
+        <title>{`${OWNER_NAME} | ${JOB_TITLE}`}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Wrapper>
