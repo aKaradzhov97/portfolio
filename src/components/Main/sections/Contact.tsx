@@ -20,7 +20,7 @@ type Props = {
   isActive: boolean;
 };
 const ContactSection = ({ isActive }: Props) => {
-  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.md})`);
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`);
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -75,11 +75,11 @@ const ContactSection = ({ isActive }: Props) => {
       >
         <StyledFields>
           <input type="hidden" name="contact-form" value={formName} />
-          <StyledField $half={isDesktop}>
+          <StyledField $half={!isMobile}>
             <Label htmlFor="name">Name</Label>
             <Input type="text" name="name" id="name" required={true} onChange={handleChange} />
           </StyledField>
-          <StyledField $half={isDesktop}>
+          <StyledField $half={!isMobile}>
             <Label htmlFor="email">Email</Label>
             <Input type="email" name="email" id="email" required={true} onChange={handleChange}  />
           </StyledField>
